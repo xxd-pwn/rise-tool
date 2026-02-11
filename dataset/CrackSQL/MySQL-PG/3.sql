@@ -1,0 +1,1 @@
+SELECT CAST( SUM( CASE WHEN `t2`.`ua` <= 8.0 AND `t1`.`sex` = 'M' THEN 1 ELSE 0 END ) AS DOUBLE ) / SUM( CASE WHEN `t2`.`ua` <= 6.5 AND `t1`.`sex` = 'F' THEN 1 ELSE 0 END ) FROM `patient` AS `t1` INNER JOIN `laboratory` AS `t2` ON `t1`.`id` = `t2`.`id`

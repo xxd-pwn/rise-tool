@@ -1,0 +1,1 @@
+SELECT SUM( `t1`.`points` ) , `t2`.`name` , `t2`.`nationality` FROM `constructorresults` AS `t1` INNER JOIN `constructors` AS `t2` ON `t1`.`constructorid` = `t2`.`constructorid` INNER JOIN `races` AS `t3` ON `t3`.`raceid` = `t1`.`raceid` WHERE `t3`.`name` = 'Monaco Grand Prix' AND `t3`.`year` BETWEEN 1980 AND 2010 GROUP BY `t2`.`name` ORDER BY SUM( `t1`.`points` ) DESC LIMIT 1

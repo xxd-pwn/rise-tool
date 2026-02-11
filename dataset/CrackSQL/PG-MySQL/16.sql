@@ -1,0 +1,1 @@
+SELECT "t1"."forename" , "t1"."surname" , "t1"."nationality" , "t3"."name" FROM "drivers" AS "t1" INNER JOIN "driverstandings" AS "t2" ON "t1"."driverid" = "t2"."driverid" INNER JOIN "races" AS "t3" ON "t2"."raceid" = "t3"."raceid" WHERE "t1"."dob" notnull ORDER BY "t1"."dob" DESC LIMIT 1

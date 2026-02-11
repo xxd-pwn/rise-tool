@@ -1,0 +1,1 @@
+SELECT "t1"."date" , EXTRACT( YEAR FROM "t2"."first date" ) - EXTRACT( YEAR FROM "t2"."birthday" ) AS "age" , "t2"."birthday" FROM "laboratory" AS "t1" INNER JOIN "patient" AS "t2" ON "t1"."id" = "t2"."id" WHERE "t2"."diagnosis" = 'SJS' AND "t2"."birthday" IS NOT NULL ORDER BY "t2"."birthday" ASC 

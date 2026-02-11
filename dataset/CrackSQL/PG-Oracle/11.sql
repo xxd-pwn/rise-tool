@@ -1,0 +1,1 @@
+SELECT "t2"."owneruserid" , "t1"."displayname" FROM "users" AS "t1" INNER JOIN "posts" AS "t2" ON "t1"."id" = "t2"."owneruserid" WHERE TO_CHAR( CAST( "t1"."creationdate" AS TIMESTAMP ) , 'YYYY' ) = '2010' ORDER BY "t2"."favoritecount" DESC NULLS LAST 

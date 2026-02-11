@@ -1,0 +1,1 @@
+SELECT CAST( COUNT( `t1`.`id` ) AS DOUBLE ) / 12 FROM `postlinks` AS `t1` INNER JOIN `posts` AS `t2` ON `t1`.`postid` = `t2`.`id` WHERE `t2`.`answercount` <= 2 AND DATE_FORMAT( CAST( `t1`.`creationdate` AS DATETIME ) , '%Y' ) = '2010'

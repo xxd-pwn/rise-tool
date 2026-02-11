@@ -1,0 +1,1 @@
+SELECT COUNT( `t2`.`client_id` ) FROM `district` AS `t1` INNER JOIN `client` AS `t2` ON `t1`.`district_id` = `t2`.`district_id` WHERE `t2`.`gender` = 'F' AND DATE_FORMAT( CAST( `t2`.`birth_date` AS DATETIME ) , '%Y' ) < '1950' AND `t1`.`a2` = 'Sokolov'

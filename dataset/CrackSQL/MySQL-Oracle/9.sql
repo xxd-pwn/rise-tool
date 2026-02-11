@@ -1,0 +1,1 @@
+SELECT CAST( SUM( CASE WHEN DATE_FORMAT( CAST( `t3`.`dob` AS DATETIME ) , '%Y' ) < '1985' AND `t1`.`laps` > 50 THEN 1 ELSE 0 END ) AS DOUBLE ) * 100 / COUNT( * ) FROM `results` AS `t1` INNER JOIN `races` AS `t2` ON `t1`.`raceid` = `t2`.`raceid` INNER JOIN `drivers` AS `t3` ON `t1`.`driverid` = `t3`.`driverid` WHERE `t2`.`year` BETWEEN 2000 AND 2005

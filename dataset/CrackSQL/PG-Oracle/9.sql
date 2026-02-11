@@ -1,0 +1,1 @@
+SELECT "t1"."superhero_name" FROM "superhero" AS "t1" INNER JOIN "hero_attribute" AS "t2" ON "t1"."id" = "t2"."hero_id" INNER JOIN "attribute" AS "t3" ON "t2"."attribute_id" = "t3"."id" WHERE "t3"."attribute_name" = 'Speed' ORDER BY "t2"."attribute_value" DESC NULLS LAST 

@@ -1,0 +1,1 @@
+SELECT DISTINCT `t1`.`id` FROM `patient` AS `t1` INNER JOIN `laboratory` AS `t2` ON `t1`.`id` = `t2`.`id` WHERE `t2`.`plt` BETWEEN 100 AND 400 AND DATE_FORMAT( CAST( `t2`.`date` AS DATETIME ) , '%Y' ) - DATE_FORMAT( CAST( `t1`.`birthday` AS DATETIME ) , '%Y' ) < 50 AND DATE_FORMAT( CAST( `t2`.`date` AS DATETIME ) , '%Y' ) = '1984'

@@ -1,0 +1,1 @@
+SELECT COUNT( DISTINCT `t1`.`id` ) FROM `patient` AS `t1` INNER JOIN `laboratory` AS `t2` ON `t1`.`id` = `t2`.`id` WHERE `t2`.`tg` >= 200 AND DATE_FORMAT( CAST( CURRENT_TIMESTAMP( ) AS DATETIME ) , '%Y' ) - DATE_FORMAT( CAST( `t1`.`birthday` AS DATETIME ) , '%Y' ) > 50

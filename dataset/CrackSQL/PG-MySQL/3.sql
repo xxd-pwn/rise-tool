@@ -1,0 +1,1 @@
+SELECT "t2"."street" , "t2"."city" , "t2"."state" , "t2"."zip" FROM "satscores" AS "t1" INNER JOIN "schools" AS "t2" ON "t1"."cds" = "t2"."cdscode" ORDER BY CAST( "t1"."numge1500" AS REAL ) / NULLIF( "t1"."numtsttakr" , 0 ) ASC NULLS FIRST LIMIT 1

@@ -1,0 +1,1 @@
+SELECT "nationality" FROM "drivers" WHERE NOT "dob" IS NULL ORDER BY "dob" ASC NULLS FIRST LIMIT 1

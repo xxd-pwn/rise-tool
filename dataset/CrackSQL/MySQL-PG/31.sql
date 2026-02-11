@@ -1,0 +1,1 @@
+SELECT COUNT( * ) FROM `patient` AS `t1` INNER JOIN `examination` AS `t2` ON `t1`.`id` = `t2`.`id` WHERE `t1`.`sex` = 'F' AND DATE_FORMAT( CAST( `t2`.`examination date` AS DATETIME ) , '%Y' ) = '1997' AND `t2`.`thrombosis` = 1

@@ -1,0 +1,1 @@
+SELECT DISTINCT "t1"."id" , EXTRACT( YEAR FROM CURRENT_TIMESTAMP ) - EXTRACT( YEAR FROM "t1"."birthday" ) AS "age" FROM "patient" AS "t1" INNER JOIN "laboratory" AS "t2" ON "t1"."id" = "t2"."id" WHERE "t1"."id" IN ( SELECT "id" FROM "laboratory" WHERE "hct" >= 52 GROUP BY "id" HAVING COUNT( "id" ) >= 2 )

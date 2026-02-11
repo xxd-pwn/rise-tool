@@ -1,0 +1,1 @@
+SELECT CAST( SUM( CASE WHEN `t2`.`event_name` = 'Yearly Kickoff' THEN `t1`.`amount` ELSE 0 END ) AS DOUBLE ) / SUM( CASE WHEN `t2`.`event_name` = 'October Meeting' THEN `t1`.`amount` ELSE 0 END ) FROM `budget` AS `t1` INNER JOIN `event` AS `t2` ON `t1`.`link_to_event` = `t2`.`event_id` WHERE `t1`.`category` = 'Advertisement' AND `t2`.`type` = 'Meeting'

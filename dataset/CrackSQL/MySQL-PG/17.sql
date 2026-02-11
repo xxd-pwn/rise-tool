@@ -1,0 +1,1 @@
+SELECT CAST( SUM( CASE WHEN `t2`.`score` > 50 THEN 1 ELSE 0 END ) AS DOUBLE ) * 100 / COUNT( `t1`.`id` ) FROM `users` AS `t1` INNER JOIN `posts` AS `t2` ON `t1`.`id` = `t2`.`owneruserid` INNER JOIN ( SELECT MAX( `reputation` ) AS `max_reputation` FROM `users` ) AS `t3` ON `t1`.`reputation` = `t3`.`max_reputation`

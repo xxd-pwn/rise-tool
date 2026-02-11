@@ -1,0 +1,1 @@
+SELECT CAST( COUNT( DISTINCT CASE WHEN `t1`.`element` <> 'f' THEN `t2`.`molecule_id` ELSE NULL END ) AS DOUBLE ) * 100 / COUNT( DISTINCT `t2`.`molecule_id` ) FROM `atom` AS `t1` INNER JOIN `molecule` AS `t2` ON `t1`.`molecule_id` = `t2`.`molecule_id` WHERE `t2`.`label` = '+'

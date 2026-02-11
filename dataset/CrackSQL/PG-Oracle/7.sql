@@ -1,0 +1,1 @@
+SELECT "t1"."forename" , "t1"."surname" , "t1"."nationality" , MAX( "t2"."points" ) FROM "drivers" AS "t1" INNER JOIN "driverstandings" AS "t2" ON "t2"."driverid" = "t1"."driverid" WHERE "t2"."wins" >= 1 GROUP BY "t1"."forename" , "t1"."surname" , "t1"."nationality" ORDER BY COUNT( "t2"."wins" ) DESC NULLS LAST 

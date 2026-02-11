@@ -1,0 +1,1 @@
+SELECT CAST( COUNT( CASE WHEN `t3`.`colour` = 'Blue' THEN `t1`.`id` ELSE NULL END ) AS DOUBLE ) * 100 / COUNT( `t1`.`id` ) FROM `superhero` AS `t1` INNER JOIN `gender` AS `t2` ON `t1`.`gender_id` = `t2`.`id` INNER JOIN `colour` AS `t3` ON `t1`.`skin_colour_id` = `t3`.`id` WHERE `t2`.`gender` = 'Female'

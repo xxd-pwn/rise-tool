@@ -1,0 +1,1 @@
+SELECT "t2"."milliseconds" , "t1"."forename" , "t1"."surname" , "t3"."name" FROM "drivers" AS "t1" INNER JOIN "laptimes" AS "t2" ON "t1"."driverid" = "t2"."driverid" INNER JOIN "races" AS "t3" ON "t2"."raceid" = "t3"."raceid" ORDER BY "t2"."milliseconds" ASC NULLS FIRST LIMIT 1

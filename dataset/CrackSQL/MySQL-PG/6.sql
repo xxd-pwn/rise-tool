@@ -1,0 +1,1 @@
+SELECT CAST( SUM( `t2`.`long_shots` ) AS DOUBLE ) / COUNT( `t2`.`date` ) FROM `player` AS `t1` INNER JOIN `player_attributes` AS `t2` ON `t1`.`player_api_id` = `t2`.`player_api_id` WHERE `t1`.`player_name` = 'Ahmed Samir Farag'

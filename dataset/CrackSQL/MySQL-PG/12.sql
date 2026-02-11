@@ -1,0 +1,1 @@
+SELECT ( CAST( COUNT( * ) AS DOUBLE ) * 100 / ( SELECT COUNT( * ) FROM `superhero` ) ) , CAST( SUM( CASE WHEN `t2`.`publisher_name` = 'Marvel Comics' THEN 1 ELSE 0 END ) AS DOUBLE ) FROM `superhero` AS `t1` INNER JOIN `publisher` AS `t2` ON `t1`.`publisher_id` = `t2`.`id` INNER JOIN `alignment` AS `t3` ON `t3`.`id` = `t1`.`alignment_id` WHERE `t3`.`alignment` = 'Bad'

@@ -1,0 +1,1 @@
+SELECT "t2"."name" FROM "match" AS "t1" INNER JOIN "league" AS "t2" ON "t1"."league_id" = "t2"."id" WHERE "t1"."season" = '2015/2016' GROUP BY "t2"."name" ORDER BY SUM( "t1"."home_team_goal" + "t1"."away_team_goal" ) DESC NULLS LAST LIMIT 1

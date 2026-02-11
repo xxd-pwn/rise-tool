@@ -1,0 +1,1 @@
+SELECT COUNT( "t1"."driverid" ) FROM "results" AS "t1" INNER JOIN "races" AS "t2" ON "t1"."raceid" = "t2"."raceid" INNER JOIN "status" AS "t3" ON "t1"."statusid" = "t3"."statusid" WHERE "t3"."statusid" = 3 AND "t2"."name" = 'Canadian Grand Prix' GROUP BY "t1"."driverid" ORDER BY COUNT( "t1"."driverid" ) DESC NULLS LAST LIMIT 1

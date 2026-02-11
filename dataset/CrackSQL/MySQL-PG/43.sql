@@ -1,0 +1,1 @@
+SELECT `t2`.`overall_rating` FROM `player` AS `t1` INNER JOIN `player_attributes` AS `t2` ON `t1`.`player_api_id` = `t2`.`player_api_id` WHERE `t1`.`player_name` = 'Gabriel Tamas' AND DATE_FORMAT( CAST( `t2`.`date` AS DATETIME ) , '%Y' ) = '2011'

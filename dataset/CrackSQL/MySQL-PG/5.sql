@@ -1,0 +1,1 @@
+SELECT CAST( SUM( CASE WHEN `t2`.`pt` >= 14 AND `t1`.`sex` = 'F' THEN 1 ELSE 0 END ) AS DOUBLE ) * 100 / COUNT( CASE WHEN `t2`.`pt` >= 14 THEN 1 ELSE 0 END ) FROM `patient` AS `t1` INNER JOIN `laboratory` AS `t2` ON `t1`.`id` = `t2`.`id` WHERE DATE_FORMAT( CAST( CURRENT_TIMESTAMP( ) AS DATETIME ) , '%Y' ) - DATE_FORMAT( CAST( `t1`.`birthday` AS DATETIME ) , '%Y' ) > 55

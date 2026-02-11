@@ -1,0 +1,1 @@
+SELECT CAST( COUNT( CASE WHEN `t1`.`country` = 'Germany' THEN `t2`.`circuitid` END ) AS DOUBLE ) * 100 / COUNT( `t2`.`circuitid` ) FROM `circuits` AS `t1` INNER JOIN `races` AS `t2` ON `t2`.`circuitid` = `t1`.`circuitid` WHERE `t2`.`name` = 'European Grand Prix'

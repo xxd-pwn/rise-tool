@@ -1,0 +1,1 @@
+SELECT DISTINCT "t1"."id" FROM "patient" AS "t1" INNER JOIN "laboratory" AS "t2" ON "t1"."id" = "t2"."id" WHERE "t2"."plt" BETWEEN 100 AND 400 AND EXTRACT( YEAR FROM "t2"."date" ) - EXTRACT( YEAR FROM "t1"."birthday" ) < 50 AND EXTRACT( YEAR FROM "t2"."date" ) = 1984

@@ -1,0 +1,1 @@
+SELECT "t1"."name" FROM "league" AS "t1" INNER JOIN "match" AS "t2" ON "t1"."id" = "t2"."league_id" WHERE "t2"."season" = '2009/2010' GROUP BY "t1"."name" HAVING ( CAST( SUM( "t2"."home_team_goal" ) AS REAL ) / NULLIF( COUNT( DISTINCT "t2"."id" ) , 0 ) ) - ( CAST( SUM( "t2"."away_team_goal" ) AS REAL ) / NULLIF( COUNT( DISTINCT "t2"."id" ) , 0 ) ) > 0

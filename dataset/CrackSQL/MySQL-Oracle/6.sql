@@ -1,0 +1,1 @@
+SELECT CAST( SUM( `t2`.`overall_rating` ) AS DOUBLE ) / COUNT( `t2`.`id` ) FROM `player` AS `t1` INNER JOIN `player_attributes` AS `t2` ON `t1`.`player_fifa_api_id` = `t2`.`player_fifa_api_id` WHERE `t1`.`player_name` = 'Marko Arnautovic' AND SUBSTR( `t2`.`date` , 1 , 10 ) BETWEEN '2007-02-22' AND '2016-04-21'

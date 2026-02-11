@@ -1,0 +1,1 @@
+SELECT CASE WHEN ( "t1"."sex" = 'F' AND "t2"."ua" > 6.5 ) OR ( "t1"."sex" = 'M' AND "t2"."ua" > 8.0 ) THEN TRUE ELSE FALSE END FROM "patient" AS "t1" INNER JOIN "laboratory" AS "t2" ON "t1"."id" = "t2"."id" WHERE "t1"."id" = 57266

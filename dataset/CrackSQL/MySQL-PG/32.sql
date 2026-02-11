@@ -1,0 +1,1 @@
+SELECT `t1`.`date` , DATE_FORMAT( CAST( `t2`.`first date` AS DATETIME ) , '%Y' ) - DATE_FORMAT( CAST( `t2`.`birthday` AS DATETIME ) , '%Y' ) , `t2`.`birthday` FROM `laboratory` AS `t1` INNER JOIN `patient` AS `t2` ON `t1`.`id` = `t2`.`id` WHERE `t2`.`diagnosis` = 'SJS' AND NOT `t2`.`birthday` IS NULL ORDER BY `t2`.`birthday` ASC LIMIT 1
