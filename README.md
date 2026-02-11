@@ -26,4 +26,4 @@ Please note that there are some syntax errors (mainly due to the misuse of 'this
 
 ## Running the Project
 
-Query translation must be performed manually, one rule at a time. Automated validation of rule correctness is not feasible—incorrect rules can corrupt the entire rule repository. Always review and verify each translated rule before manually adding it to the rule library.
+Query translation must be performed manually, once at a time. Automated validation of rule correctness is not feasible—incorrect rules can corrupt the entire rule repository. Always review and verify each translated rule before manually adding it to the rule library.
