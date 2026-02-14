@@ -64,7 +64,8 @@ WITH all_sales AS (
    AND curr_yr.d_year=2002
    AND prev_yr.d_year=2002-1
    AND CAST(curr_yr.sales_cnt AS DECIMAL(17,2))/CAST(prev_yr.sales_cnt AS DECIMAL(17,2))<0.9
- ORDER BY sales_cnt_diff,sales_amt_diff
+ ORDER BY (sales_cnt_diff IS NOT NULL), sales_cnt_diff,
+     (sales_amt_diff IS NOT NULL), sales_amt_diff
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query75.tpl

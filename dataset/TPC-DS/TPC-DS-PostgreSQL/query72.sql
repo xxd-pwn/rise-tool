@@ -23,7 +23,10 @@ where d1.d_week_seq = d2.d_week_seq
   and d1.d_year = 2001
   and cd_marital_status = 'M'
 group by i_item_desc,w_warehouse_name,d1.d_week_seq
-order by total_cnt desc, i_item_desc, w_warehouse_name, d_week_seq
+order by (total_cnt IS NOT NULL) desc, total_cnt desc,
+         (i_item_desc IS NOT NULL), i_item_desc,
+         (w_warehouse_name IS NOT NULL), w_warehouse_name,
+         (d_week_seq IS NOT NULL), d_week_seq
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query72.tpl

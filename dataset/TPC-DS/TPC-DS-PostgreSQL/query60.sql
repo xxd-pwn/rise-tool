@@ -71,8 +71,8 @@ where i_category in ('Children'))
         union all
         select * from ws) tmp1
  group by i_item_id
- order by i_item_id
-      ,total_sales
+ order by (i_item_id IS NOT NULL), i_item_id
+      ,(total_sales IS NOT NULL), total_sales
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query60.tpl

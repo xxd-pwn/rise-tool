@@ -1,1 +1,0 @@
-SELECT COUNT( `t1`.`id` ) FROM `patient` AS `t1` INNER JOIN `laboratory` AS `t2` ON `t1`.`id` = `t2`.`id` WHERE `t2`.`iga` BETWEEN 80 AND 500 AND DATE_FORMAT( CAST( `t1`.`first date` AS DATETIME ) , '%Y' ) > '1990'

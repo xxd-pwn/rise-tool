@@ -1,1 +1,0 @@
-SELECT `t2`.`admemail1` , `t2`.`admemail2` FROM `frpm` AS `t1` INNER JOIN `schools` AS `t2` ON `t1`.`cdscode` = `t2`.`cdscode` WHERE `t2`.`county` = 'San Bernardino' AND `t2`.`city` = 'San Bernardino' AND `t2`.`doc` = 54 AND DATE_FORMAT( CAST( `t2`.`opendate` AS DATETIME ) , '%Y' ) BETWEEN '2009' AND '2010' AND `t2`.`soc` = 62

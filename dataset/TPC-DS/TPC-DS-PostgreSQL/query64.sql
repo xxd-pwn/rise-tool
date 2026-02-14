@@ -112,10 +112,10 @@ where cs1.item_sk=cs2.item_sk and
      cs2.cnt <= cs1.cnt and
      cs1.store_name = cs2.store_name and
      cs1.store_zip = cs2.store_zip
-order by cs1.product_name
-       ,cs1.store_name
-       ,cs2.cnt
-       ,cs1.s1
-       ,cs2.s1;
+order by (cs1.product_name IS NOT NULL), cs1.product_name
+       ,(cs1.store_name IS NOT NULL), cs1.store_name
+       ,(cs2.cnt IS NOT NULL), cs2.cnt
+       ,(cs1.s1 IS NOT NULL), cs1.s1
+       ,(cs2.s1 IS NOT NULL), cs2.s1;
 
 -- end query 1 in stream 0 using template query64.tpl

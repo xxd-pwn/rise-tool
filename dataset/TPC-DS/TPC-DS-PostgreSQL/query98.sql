@@ -24,10 +24,10 @@ group by
         ,i_class
         ,i_current_price
 order by 
-	i_category
-        ,i_class
-        ,i_item_id
-        ,i_item_desc
-        ,revenueratio;
+	(i_category IS NOT NULL), i_category
+        ,(i_class IS NOT NULL), i_class
+        ,(i_item_id IS NOT NULL), i_item_id
+        ,(i_item_desc IS NOT NULL), i_item_desc
+        ,(revenueratio IS NOT NULL), revenueratio;
 
 -- end query 1 in stream 0 using template query98.tpl

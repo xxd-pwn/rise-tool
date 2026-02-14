@@ -22,8 +22,11 @@ select
                  'TN','TN','TN','TN')
  group by rollup(i_category,i_class)
  order by
-   lochierarchy desc
-  ,case when grouping(i_category)+grouping(i_class) = 0 then i_category end
+   (lochierarchy IS NOT NULL) desc
+  ,lochierarchy desc
+  ,(CASE WHEN grouping(i_category) + grouping(i_class) = 0 THEN i_category END IS NOT NULL)
+  ,CASE WHEN grouping(i_category) + grouping(i_class) = 0 THEN i_category END,
+  ,(rank_within_parent IS NOT NULL)
   ,rank_within_parent
    fetch first 100 rows only;
 

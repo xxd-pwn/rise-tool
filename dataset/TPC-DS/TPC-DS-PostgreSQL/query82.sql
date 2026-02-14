@@ -11,7 +11,7 @@ select  i_item_id
  and inv_quantity_on_hand between 100 and 500
  and ss_item_sk = i_item_sk
  group by i_item_id,i_item_desc,i_current_price
- order by i_item_id
+ order by (i_item_id IS NOT NULL), i_item_id
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query82.tpl

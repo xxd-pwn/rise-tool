@@ -1,1 +1,0 @@
-SELECT DISTINCT "t1"."id" , "t1"."sex" , EXTRACT( YEAR FROM CURRENT_TIMESTAMP ) - EXTRACT( YEAR FROM "t1"."birthday" ) AS "age" FROM "patient" AS "t1" INNER JOIN "laboratory" AS "t2" ON "t1"."id" = "t2"."id" WHERE "t2"."glu" >= 180 AND "t2"."t-cho" < 250

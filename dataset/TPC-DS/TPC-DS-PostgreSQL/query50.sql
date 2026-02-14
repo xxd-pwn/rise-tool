@@ -44,16 +44,16 @@ group by
   ,s_county
   ,s_state
   ,s_zip
-order by s_store_name
-        ,s_company_id
-        ,s_street_number
-        ,s_street_name
-        ,s_street_type
-        ,s_suite_number
-        ,s_city
-        ,s_county
-        ,s_state
-        ,s_zip
+order by (s_store_name IS NOT NULL), s_store_name
+        ,(s_company_id IS NOT NULL), s_company_id
+        ,(s_street_number IS NOT NULL), s_street_number
+        ,(s_street_name IS NOT NULL), s_street_name
+        ,(s_street_type IS NOT NULL), s_street_type
+        ,(s_suite_number IS NOT NULL), s_suite_number
+        ,(s_city IS NOT NULL), s_city
+        ,(s_county IS NOT NULL), s_county
+        ,(s_state IS NOT NULL), s_state
+        ,(s_zip IS NOT NULL), s_zip
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query50.tpl

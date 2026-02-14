@@ -1,1 +1,0 @@
-SELECT CAST( COUNT( CASE WHEN `t2`.`colour` = 'Blue' THEN 1 ELSE NULL END ) AS DOUBLE ) * 100 / COUNT( `t1`.`id` ) FROM `superhero` AS `t1` INNER JOIN `colour` AS `t2` ON `t1`.`eye_colour_id` = `t2`.`id`

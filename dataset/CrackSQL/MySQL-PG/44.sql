@@ -1,1 +1,0 @@
-SELECT COUNT( DISTINCT `t1`.`player_name` ) FROM `player` AS `t1` INNER JOIN `player_attributes` AS `t2` ON `t1`.`player_api_id` = `t2`.`player_api_id` WHERE DATE_FORMAT( CAST( `t1`.`birthday` AS DATETIME ) , '%Y' ) < '1986' AND `t2`.`defensive_work_rate` = 'high'

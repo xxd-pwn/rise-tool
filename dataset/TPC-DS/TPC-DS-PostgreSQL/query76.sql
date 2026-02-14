@@ -18,7 +18,11 @@ select  channel, col_name, d_year, d_qoy, i_category, COUNT(*) sales_cnt, SUM(ex
            AND cs_sold_date_sk=d_date_sk
            AND cs_item_sk=i_item_sk) foo
 GROUP BY channel, col_name, d_year, d_qoy, i_category
-ORDER BY channel, col_name, d_year, d_qoy, i_category
+ORDER BY (channel IS NOT NULL), channel,
+         (col_name IS NOT NULL), col_name,
+         (d_year IS NOT NULL), d_year,
+         (d_qoy IS NOT NULL), d_qoy,
+         (i_category IS NOT NULL), i_category
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query76.tpl

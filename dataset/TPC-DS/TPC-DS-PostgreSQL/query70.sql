@@ -30,8 +30,10 @@ select
              )
  group by rollup(s_state,s_county)
  order by
-   lochierarchy desc
+   (lochierarchy IS NOT NULL) desc, lochierarchy desc
+  ,(case when grouping(s_state)+grouping(s_county) = 0 then s_state end IS NOT NULL)
   ,case when grouping(s_state)+grouping(s_county) = 0 then s_state end
+  ,(rank_within_parent IS NOT NULL)
   ,rank_within_parent
   fetch first 100 rows only;
 

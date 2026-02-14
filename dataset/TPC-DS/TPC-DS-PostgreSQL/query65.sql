@@ -23,7 +23,7 @@ select
        sc.revenue <= 0.1 * sb.ave and
        s_store_sk = sc.ss_store_sk and
        i_item_sk = sc.ss_item_sk
- order by s_store_name, i_item_desc
+ order by (s_store_name IS NOT NULL), s_store_name, (i_item_desc IS NOT NULL), i_item_desc
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query65.tpl

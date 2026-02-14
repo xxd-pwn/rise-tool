@@ -1,1 +1,0 @@
-SELECT COUNT( `t1`.`id` ) FROM `patient` AS `t1` INNER JOIN `examination` AS `t2` ON `t1`.`id` = `t2`.`id` WHERE DATE_FORMAT( CAST( `t2`.`examination date` AS DATETIME ) , '%Y' ) BETWEEN '1990' AND '1993' AND DATE_FORMAT( CAST( `t2`.`examination date` AS DATETIME ) , '%Y' ) - DATE_FORMAT( CAST( `t1`.`birthday` AS DATETIME ) , '%Y' ) < '18'

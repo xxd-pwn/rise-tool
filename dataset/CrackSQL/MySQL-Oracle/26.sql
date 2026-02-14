@@ -1,1 +1,0 @@
-SELECT CAST( SUM( CASE WHEN DATE_FORMAT( CAST( `birthday` AS DATETIME ) , '%Y' ) > '1930' THEN 1 ELSE 0 END ) AS DOUBLE ) * 100 / COUNT( * ) FROM `patient` WHERE `sex` = 'F'

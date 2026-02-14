@@ -1,1 +1,0 @@
-SELECT COUNT( `t1`.`transactionid` ) FROM `transactions_1k` AS `t1` INNER JOIN `gasstations` AS `t2` ON `t1`.`gasstationid` = `t2`.`gasstationid` WHERE `t2`.`country` = 'CZE' AND DATE_FORMAT( CAST( `t1`.`date` AS DATETIME ) , '%Y' ) >= '2012'

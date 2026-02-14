@@ -15,7 +15,7 @@ select  i_item_id,
        (p_channel_email = 'N' or p_channel_event = 'N') and
        d_year = 1998 
  group by i_item_id
- order by i_item_id
+ order by (i_item_id IS NOT NULL), i_item_id
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query7.tpl

@@ -23,8 +23,8 @@ select  *
              then inv_after / inv_before 
              else null
              end) between 2.0/3.0 and 3.0/2.0
- order by w_warehouse_name
-         ,i_item_id
+ order by (w_warehouse_name IS NOT NULL), w_warehouse_name
+         ,(i_item_id IS NOT NULL), i_item_id
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query21.tpl

@@ -1,1 +1,0 @@
-SELECT CASE WHEN "t2"."closeddate" IS NULL THEN 'NOT well-finished' ELSE 'well-finished' END AS "resylt" FROM "comments" AS "t1" INNER JOIN "posts" AS "t2" ON "t1"."postid" = "t2"."id" WHERE "t1"."userid" = 23853 AND "t1"."creationdate" = '2013-07-12 09:08:18.0'

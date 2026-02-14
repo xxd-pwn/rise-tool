@@ -37,9 +37,9 @@ select  i_item_id
  group by i_item_id
          ,i_item_desc
          ,s_state
- order by i_item_id
-         ,i_item_desc
-         ,s_state
+ order by (i_item_id IS NOT NULL), i_item_id
+         ,(i_item_desc IS NOT NULL), i_item_desc
+         ,(s_state IS NOT NULL), s_state
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query17.tpl

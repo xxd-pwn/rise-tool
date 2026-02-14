@@ -38,7 +38,9 @@ with wss as
         d_month_seq between 1185+ 12 and 1185 + 23) x
  where s_store_id1=s_store_id2
    and d_week_seq1=d_week_seq2-52
- order by s_store_name1,s_store_id1,d_week_seq1
+ order by (s_store_name1 IS NOT NULL), s_store_name1,
+          (s_store_id1 IS NOT NULL), s_store_id1,
+          (d_week_seq1 IS NOT NULL), d_week_seq1
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query59.tpl

@@ -20,7 +20,7 @@ select  a.ca_state state, count(*) cnt
  	     where j.i_category = i.i_category)
  group by a.ca_state
  having count(*) >= 10
- order by cnt, a.ca_state 
+ order by (cnt IS NOT NULL), cnt, (a.ca_state IS NOT NULL), a.ca_state
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query6.tpl

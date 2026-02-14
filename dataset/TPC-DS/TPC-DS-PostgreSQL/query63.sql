@@ -21,9 +21,9 @@ from (select i_manager_id
 		                 'importoamalg #1')))
 group by i_manager_id, d_moy) tmp1
 where case when avg_monthly_sales > 0 then abs (sum_sales - avg_monthly_sales) / avg_monthly_sales else null end > 0.1
-order by i_manager_id
-        ,avg_monthly_sales
-        ,sum_sales
+order by (i_manager_id IS NOT NULL), i_manager_id
+        ,(avg_monthly_sales IS NOT NULL), avg_monthly_sales
+        ,(sum_sales IS NOT NULL), sum_sales
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query63.tpl

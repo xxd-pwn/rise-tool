@@ -25,10 +25,10 @@ select  i_item_id,
        ca_state in ('ND','WI','AL'
                    ,'NC','OK','MS','TN')
  group by rollup (i_item_id, ca_country, ca_state, ca_county)
- order by ca_country,
-        ca_state, 
-        ca_county,
-	i_item_id
+ order by (ca_country IS NOT NULL), ca_country,
+        (ca_state IS NOT NULL), ca_state,
+        (ca_county IS NOT NULL), ca_county,
+	(i_item_id IS NOT NULL), i_item_id
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query18.tpl

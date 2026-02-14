@@ -29,16 +29,16 @@ from (select i_category
           and d_month_seq between 1212 and 1212+11
        group by  rollup(i_category, i_class, i_brand, i_product_name, d_year, d_qoy, d_moy,s_store_id))dw1) dw2
 where rk <= 100
-order by i_category
-        ,i_class
-        ,i_brand
-        ,i_product_name
-        ,d_year
-        ,d_qoy
-        ,d_moy
-        ,s_store_id
-        ,sumsales
-        ,rk
+order by (i_category IS NOT NULL), i_category
+        ,(i_class IS NOT NULL), i_class
+        ,(i_brand IS NOT NULL), i_brand
+        ,(i_product_name IS NOT NULL), i_product_name
+        ,(d_year IS NOT NULL), d_year
+        ,(d_qoy IS NOT NULL), d_qoy
+        ,(d_moy IS NOT NULL), d_moy
+        ,(s_store_id IS NOT NULL), s_store_id
+        ,(sumsales IS NOT NULL), sumsales
+        ,(rk IS NOT NULL), rk
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query67.tpl

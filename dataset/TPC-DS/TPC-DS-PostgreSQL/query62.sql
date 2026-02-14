@@ -27,9 +27,9 @@ group by
    substr(w_warehouse_name,1,20)
   ,sm_type
   ,web_name
-order by substr(w_warehouse_name,1,20)
-        ,sm_type
-       ,web_name
+order by (substr(w_warehouse_name,1,20) IS NOT NULL), substr(w_warehouse_name,1,20)
+        ,(sm_type IS NOT NULL), sm_type
+       ,(web_name IS NOT NULL), web_name
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query62.tpl

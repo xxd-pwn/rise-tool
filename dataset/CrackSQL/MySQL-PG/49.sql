@@ -1,1 +1,0 @@
-SELECT DISTINCT `t1`.`a2` FROM `district` AS `t1` INNER JOIN `account` AS `t2` ON `t1`.`district_id` = `t2`.`district_id` INNER JOIN `trans` AS `t3` ON `t2`.`account_id` = `t3`.`account_id` WHERE `t3`.`type` = 'VYDAJ' AND `t3`.`date` LIKE '1996-01%' ORDER BY `a2` ASC LIMIT 10

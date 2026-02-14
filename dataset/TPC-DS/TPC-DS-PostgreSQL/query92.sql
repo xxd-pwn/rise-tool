@@ -24,7 +24,7 @@ and ws_ext_discount_amt
                              (cast('1998-03-18' as date) + INTERVAL  '90 days')
           and d_date_sk = ws_sold_date_sk 
       ) 
-order by sum(ws_ext_discount_amt)
+order by (sum(ws_ext_discount_amt) IS NOT NULL), sum(ws_ext_discount_amt)
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query92.tpl

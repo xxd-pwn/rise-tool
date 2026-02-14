@@ -1,1 +1,0 @@
-SELECT CAST( COUNT( CASE WHEN `t2`.`position` <> 1 THEN `t2`.`position` END ) AS DOUBLE ) * 100 / COUNT( `t2`.`driverstandingsid` ) FROM `races` AS `t1` INNER JOIN `driverstandings` AS `t2` ON `t2`.`raceid` = `t1`.`raceid` INNER JOIN `drivers` AS `t3` ON `t3`.`driverid` = `t2`.`driverid` WHERE `t3`.`surname` = 'Hamilton' AND `t1`.`year` >= 2010

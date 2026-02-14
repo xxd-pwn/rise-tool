@@ -1,1 +1,0 @@
-SELECT `t1`.`client_id` , DATE_FORMAT( CAST( CURRENT_TIMESTAMP( ) AS DATETIME ) , '%Y' ) - DATE_FORMAT( CAST( `t3`.`birth_date` AS DATETIME ) , '%Y' ) FROM `disp` AS `t1` INNER JOIN `card` AS `t2` ON `t2`.`disp_id` = `t1`.`disp_id` INNER JOIN `client` AS `t3` ON `t1`.`client_id` = `t3`.`client_id` WHERE `t2`.`type` = 'gold' AND `t1`.`type` = 'OWNER'

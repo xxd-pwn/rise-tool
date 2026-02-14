@@ -58,8 +58,8 @@ with ss_items as
    and cs_item_rev between 0.9 * ws_item_rev and 1.1 * ws_item_rev
    and ws_item_rev between 0.9 * ss_item_rev and 1.1 * ss_item_rev
    and ws_item_rev between 0.9 * cs_item_rev and 1.1 * cs_item_rev
- order by item_id
-         ,ss_item_rev
+ order by (item_id IS NOT NULL), item_id
+         ,(ss_item_rev IS NOT NULL), ss_item_rev
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query58.tpl

@@ -69,7 +69,7 @@ where i_category in ('Books'))
         union all
         select * from ws) tmp1
  group by i_manufact_id
- order by total_sales
+ order by (total_sales IS NOT NULL), total_sales
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query33.tpl

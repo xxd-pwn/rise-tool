@@ -1,1 +1,0 @@
-SELECT "superhero_name" FROM "superhero" AS "t1" WHERE EXISTS ( SELECT 1 FROM "hero_attribute" AS "t2" INNER JOIN "attribute" AS "t3" ON "t2"."attribute_id" = "t3"."id" WHERE "t3"."attribute_name" = 'Durability' AND "t2"."attribute_value" < 50 AND "t1"."id" = "t2"."hero_id" )

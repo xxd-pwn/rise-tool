@@ -47,12 +47,16 @@ left join ws on (ws_sold_year=ss_sold_year and ws_item_sk=ss_item_sk and ws_cust
 left join cs on (cs_sold_year=ss_sold_year and cs_item_sk=ss_item_sk and cs_customer_sk=ss_customer_sk)
 where (coalesce(ws_qty,0)>0 or coalesce(cs_qty, 0)>0) and ss_sold_year=2000
 order by 
-  ss_sold_year, ss_item_sk, ss_customer_sk,
-  ss_qty desc, ss_wc desc, ss_sp desc,
-  other_chan_qty,
-  other_chan_wholesale_cost,
-  other_chan_sales_price,
-  ratio
+  (ss_sold_year IS NOT NULL), ss_sold_year,
+  (ss_item_sk IS NOT NULL), ss_item_sk,
+  (ss_customer_sk IS NOT NULL), ss_customer_sk,
+  (ss_qty IS NOT NULL) desc, ss_qty desc,
+  (ss_wc IS NOT NULL) desc, ss_wc desc,
+  (ss_sp IS NOT NULL) desc, ss_sp desc,
+  (other_chan_qty IS NOT NULL), other_chan_qty,
+  (other_chan_wholesale_cost IS NOT NULL), other_chan_wholesale_cost,
+  (other_chan_sales_price IS NOT NULL), other_chan_sales_price,
+  (ratio IS NOT NULL), ratio
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query78.tpl

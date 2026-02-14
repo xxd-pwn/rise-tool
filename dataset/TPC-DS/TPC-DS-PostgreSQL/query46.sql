@@ -25,11 +25,11 @@ select  c_last_name
     where ss_customer_sk = c_customer_sk
       and customer.c_current_addr_sk = current_addr.ca_address_sk
       and current_addr.ca_city <> bought_city
-  order by c_last_name
-          ,c_first_name
-          ,ca_city
-          ,bought_city
-          ,ss_ticket_number
+  order by (c_last_name IS NOT NULL), c_last_name
+          ,(c_first_name IS NOT NULL), c_first_name
+          ,(ca_city IS NOT NULL), ca_city
+          ,(bought_city IS NOT NULL), bought_city
+          ,(ss_ticket_number IS NOT NULL), ss_ticket_number
    fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query46.tpl

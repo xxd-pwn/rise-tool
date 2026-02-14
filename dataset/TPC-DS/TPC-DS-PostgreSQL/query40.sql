@@ -22,7 +22,8 @@ select
                 and (cast ('1998-04-08' as date) + INTERVAL  '30 days') 
  group by
     w_state,i_item_id
- order by w_state,i_item_id
+ order by (w_state IS NOT NULL), w_state,
+          (i_item_id IS NOT NULL), i_item_id
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query40.tpl

@@ -19,7 +19,7 @@ select  CASE
          and time_dim.t_hour between 14 and 14+1
          and household_demographics.hd_dep_count = 8
          and web_page.wp_char_count between 5000 and 5200) pt
- order by am_pm_ratio
+ order by (am_pm_ratio IS NOT NULL), am_pm_ratio
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query90.tpl

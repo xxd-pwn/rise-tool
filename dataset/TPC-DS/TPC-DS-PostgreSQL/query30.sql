@@ -23,9 +23,19 @@ with customer_total_return as
        and ca_address_sk = c_current_addr_sk
        and ca_state = 'IL'
        and ctr1.ctr_customer_sk = c_customer_sk
- order by c_customer_id,c_salutation,c_first_name,c_last_name,c_preferred_cust_flag
-                  ,c_birth_day,c_birth_month,c_birth_year,c_birth_country,c_login,c_email_address
-                  ,c_last_review_date,ctr_total_return
+ order by (c_customer_id IS NOT NULL), c_customer_id,
+          (c_salutation IS NOT NULL), c_salutation,
+          (c_first_name IS NOT NULL), c_first_name,
+          (c_last_name IS NOT NULL), c_last_name,
+          (c_preferred_cust_flag IS NOT NULL), c_preferred_cust_flag,
+          (c_birth_day IS NOT NULL), c_birth_day,
+          (c_birth_month IS NOT NULL), c_birth_month,
+          (c_birth_year IS NOT NULL), c_birth_year,
+          (c_birth_country IS NOT NULL), c_birth_country,
+          (c_login IS NOT NULL), c_login,
+          (c_email_address IS NOT NULL), c_email_address,
+          (c_last_review_date IS NOT NULL), c_last_review_date,
+          (ctr_total_return IS NOT NULL), ctr_total_return
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query30.tpl

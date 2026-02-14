@@ -214,7 +214,7 @@ select
  	,w_country
  	,ship_carriers
        ,year
- order by w_warehouse_name
+ order by (w_warehouse_name IS NOT NULL), w_warehouse_name
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query66.tpl

@@ -13,7 +13,15 @@ select  s_store_name, s_store_id,
        s_gmt_offset = -5 and
        d_year = 1998 
  group by s_store_name, s_store_id
- order by s_store_name, s_store_id,sun_sales,mon_sales,tue_sales,wed_sales,thu_sales,fri_sales,sat_sales
+ order by (s_store_name IS NOT NULL), s_store_name,
+          (s_store_id IS NOT NULL), s_store_id,
+          (sun_sales IS NOT NULL), sun_sales,
+          (mon_sales IS NOT NULL), mon_sales,
+          (tue_sales IS NOT NULL), tue_sales,
+          (wed_sales IS NOT NULL), wed_sales,
+          (thu_sales IS NOT NULL), thu_sales,
+          (fri_sales IS NOT NULL), fri_sales,
+          (sat_sales IS NOT NULL), sat_sales
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query43.tpl

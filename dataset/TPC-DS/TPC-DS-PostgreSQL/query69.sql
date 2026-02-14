@@ -37,11 +37,11 @@ select
           cd_education_status,
           cd_purchase_estimate,
           cd_credit_rating
- order by cd_gender,
-          cd_marital_status,
-          cd_education_status,
-          cd_purchase_estimate,
-          cd_credit_rating
+ order by (cd_gender IS NOT NULL), cd_gender,
+          (cd_marital_status IS NOT NULL), cd_marital_status,
+          (cd_education_status IS NOT NULL), cd_education_status,
+          (cd_purchase_estimate IS NOT NULL), cd_purchase_estimate,
+          (cd_credit_rating IS NOT NULL), cd_credit_rating
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query69.tpl

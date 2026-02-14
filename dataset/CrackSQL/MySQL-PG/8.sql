@@ -1,1 +1,0 @@
-SELECT CAST( SUM( `t2`.`overall_rating` ) AS DOUBLE ) / COUNT( `t2`.`id` ) FROM `player` AS `t1` INNER JOIN `player_attributes` AS `t2` ON `t1`.`player_api_id` = `t2`.`player_api_id` WHERE `t1`.`player_name` = 'Pietro Marino'

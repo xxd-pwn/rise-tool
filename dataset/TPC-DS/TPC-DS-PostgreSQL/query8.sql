@@ -102,7 +102,7 @@ select  s_store_name
   and d_qoy = 1 and d_year = 2002
   and (substr(s_zip,1,2) = substr(V1.ca_zip,1,2))
  group by s_store_name
- order by s_store_name
+ order by (s_store_name IS NOT NULL), s_store_name
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query8.tpl

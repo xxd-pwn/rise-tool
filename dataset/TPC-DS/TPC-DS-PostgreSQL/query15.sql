@@ -14,7 +14,7 @@ select  ca_zip
  	and cs_sold_date_sk = d_date_sk
  	and d_qoy = 2 and d_year = 2000
  group by ca_zip
- order by ca_zip
+ order by (ca_zip IS NOT NULL), ca_zip
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query15.tpl

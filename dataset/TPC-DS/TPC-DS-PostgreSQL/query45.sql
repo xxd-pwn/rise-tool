@@ -14,7 +14,8 @@ select  ca_zip, ca_county, sum(ws_sales_price)
  	and ws_sold_date_sk = d_date_sk
  	and d_qoy = 2 and d_year = 2000
  group by ca_zip, ca_county
- order by ca_zip, ca_county
+ order by (ca_zip IS NOT NULL), ca_zip,
+          (ca_county IS NOT NULL), ca_county
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query45.tpl

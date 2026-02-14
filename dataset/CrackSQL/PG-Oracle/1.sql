@@ -1,1 +1,0 @@
-SELECT "t1"."customerid" FROM "customers" AS "t1" INNER JOIN "yearmonth" AS "t2" ON "t1"."customerid" = "t2"."customerid" WHERE "t1"."segment" = 'LAM' AND SUBSTR( "t2"."date" , 1 , 4 ) = '2012' GROUP BY "t1"."customerid" ORDER BY SUM( "t2"."consumption" ) ASC NULLS FIRST 

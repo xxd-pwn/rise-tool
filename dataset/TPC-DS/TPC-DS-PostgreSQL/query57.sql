@@ -42,7 +42,7 @@ with v1 as(
  where  d_year = 2000 and
         avg_monthly_sales > 0 and
         case when avg_monthly_sales > 0 then abs(sum_sales - avg_monthly_sales) / avg_monthly_sales else null end > 0.1
- order by sum_sales - avg_monthly_sales, nsum
+ order by (sum_sales - avg_monthly_sales IS NOT NULL), sum_sales - avg_monthly_sales, (nsum IS NOT NULL), nsum
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query57.tpl

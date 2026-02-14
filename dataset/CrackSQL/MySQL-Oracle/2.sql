@@ -1,1 +1,0 @@
-SELECT DISTINCT `t3`.`currency` FROM `transactions_1k` AS `t1` INNER JOIN `gasstations` AS `t2` ON `t1`.`gasstationid` = `t2`.`gasstationid` INNER JOIN `customers` AS `t3` ON `t1`.`customerid` = `t3`.`customerid` WHERE `t1`.`date` = '2012-08-24' AND `t1`.`time` = '16:25:00'

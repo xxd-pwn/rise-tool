@@ -20,9 +20,9 @@ group by i_manufact_id, d_qoy ) tmp1
 where case when avg_quarterly_sales > 0 
 	then abs (sum_sales - avg_quarterly_sales)/ avg_quarterly_sales 
 	else null end > 0.1
-order by avg_quarterly_sales,
-	 sum_sales,
-	 i_manufact_id
+order by (avg_quarterly_sales IS NOT NULL), avg_quarterly_sales,
+	 (sum_sales IS NOT NULL), sum_sales,
+	 (i_manufact_id IS NOT NULL), i_manufact_id
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query53.tpl

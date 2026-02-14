@@ -1,1 +1,0 @@
-SELECT "t2"."a2" , COUNT( "t1"."client_id" ) FROM "client" AS "t1" INNER JOIN "district" AS "t2" ON "t1"."district_id" = "t2"."district_id" WHERE "t1"."gender" = 'F' GROUP BY "t2"."district_id" , "t2"."a2" ORDER BY COUNT( "t1"."client_id" ) DESC NULLS LAST LIMIT 9

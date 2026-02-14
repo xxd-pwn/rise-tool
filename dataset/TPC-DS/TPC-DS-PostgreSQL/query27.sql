@@ -16,8 +16,8 @@ select  i_item_id,
        d_year = 1998 and
        s_state in ('TN','TN', 'TN', 'TN', 'TN', 'TN')
  group by rollup (i_item_id, s_state)
- order by i_item_id
-         ,s_state
+ order by (i_item_id IS NOT NULL), i_item_id
+         ,(s_state IS NOT NULL), s_state
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query27.tpl

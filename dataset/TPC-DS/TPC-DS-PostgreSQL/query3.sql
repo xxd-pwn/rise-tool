@@ -13,9 +13,9 @@ select  dt.d_year
  group by dt.d_year
       ,item.i_brand
       ,item.i_brand_id
- order by dt.d_year
-         ,sum_agg desc
-         ,brand_id
+ order by (dt.d_year IS NOT NULL), dt.d_year
+         ,(sum_agg IS NOT NULL) desc, sum_agg desc
+         ,(brand_id IS NOT NULL), brand_id
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query3.tpl

@@ -1,1 +1,0 @@
-SELECT COUNT( DISTINCT `t1`.`id` ) FROM `patient` AS `t1` INNER JOIN `laboratory` AS `t2` ON `t1`.`id` = `t2`.`id` WHERE DATE_FORMAT( CAST( `t1`.`birthday` AS DATETIME ) , '%Y' ) BETWEEN '1936' AND '1956' AND `t1`.`sex` = 'M' AND `t2`.`cpk` >= 250

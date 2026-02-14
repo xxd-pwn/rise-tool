@@ -14,9 +14,10 @@ select  dt.d_year
  group by 	dt.d_year
  		,item.i_category_id
  		,item.i_category
- order by       sum(ss_ext_sales_price) desc,dt.d_year
- 		,item.i_category_id
- 		,item.i_category
+ order by       sum(ss_ext_sales_price) desc,
+                (dt.d_year IS NOT NULL), dt.d_year,
+                (item.i_category_id IS NOT NULL), item.i_category_id,
+                (item.i_category IS NOT NULL), item.i_category
  fetch first 100 rows only ;
 
 -- end query 1 in stream 0 using template query42.tpl

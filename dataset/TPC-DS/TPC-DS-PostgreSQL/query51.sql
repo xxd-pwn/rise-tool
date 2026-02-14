@@ -38,8 +38,8 @@ from (select item_sk
                                                           and web.d_date = store.d_date)
           )x )y
 where web_cumulative > store_cumulative
-order by item_sk
-        ,d_date
+order by (item_sk IS NOT NULL), item_sk
+        ,(d_date IS NOT NULL), d_date
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query51.tpl

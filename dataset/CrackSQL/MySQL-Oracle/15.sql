@@ -1,1 +1,0 @@
-SELECT CAST( COUNT( DISTINCT CASE WHEN `t2`.`label` = '+' THEN `t2`.`molecule_id` ELSE NULL END ) AS DOUBLE ) * 100 / COUNT( DISTINCT `t2`.`molecule_id` ) FROM `atom` AS `t1` INNER JOIN `molecule` AS `t2` ON `t1`.`molecule_id` = `t2`.`molecule_id` INNER JOIN `bond` AS `t3` ON `t2`.`molecule_id` = `t3`.`molecule_id` WHERE `t3`.`bond_type` = '#'

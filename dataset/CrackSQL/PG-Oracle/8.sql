@@ -1,1 +1,0 @@
-SELECT "t1"."name" , "t1"."year" FROM "races" AS "t1" INNER JOIN "laptimes" AS "t2" ON "t2"."raceid" = "t1"."raceid" INNER JOIN "drivers" AS "t3" ON "t3"."driverid" = "t2"."driverid" WHERE "t3"."forename" = 'Michael' AND "t3"."surname" = 'Schumacher' ORDER BY "t2"."milliseconds" ASC NULLS FIRST 

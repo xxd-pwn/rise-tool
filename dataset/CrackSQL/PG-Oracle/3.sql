@@ -1,1 +1,0 @@
-SELECT EXTRACT( YEAR FROM "t2"."date" ) - EXTRACT( YEAR FROM "t1"."birthday" ) AS "age_difference" , "t1"."diagnosis" FROM "patient" AS "t1" INNER JOIN "laboratory" AS "t2" ON "t1"."id" = "t2"."id" WHERE "t2"."hgb" IS NOT NULL ORDER BY "t2"."hgb" DESC 

@@ -47,12 +47,12 @@ select
           cd_dep_count,
           cd_dep_employed_count,
           cd_dep_college_count
- order by ca_state,
-          cd_gender,
-          cd_marital_status,
-          cd_dep_count,
-          cd_dep_employed_count,
-          cd_dep_college_count
+ order by (ca_state IS NOT NULL), ca_state,
+          (cd_gender IS NOT NULL), cd_gender,
+          (cd_marital_status IS NOT NULL), cd_marital_status,
+          (cd_dep_count IS NOT NULL), cd_dep_count,
+          (cd_dep_employed_count IS NOT NULL), cd_dep_employed_count,
+          (cd_dep_college_count IS NOT NULL), cd_dep_college_count
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query35.tpl

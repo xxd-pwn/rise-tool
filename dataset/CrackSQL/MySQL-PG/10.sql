@@ -1,1 +1,0 @@
-SELECT DATE_FORMAT( CAST( CURRENT_TIMESTAMP( ) AS DATETIME ) , '%Y' ) - DATE_FORMAT( CAST( `dob` AS DATETIME ) , '%Y' ) , `forename` , `surname` FROM `drivers` WHERE `nationality` = 'Japanese' ORDER BY `dob` DESC LIMIT 1

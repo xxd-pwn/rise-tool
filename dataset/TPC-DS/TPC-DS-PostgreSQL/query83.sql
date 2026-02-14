@@ -60,8 +60,8 @@ with sr_items as
      ,wr_items
  where sr_items.item_id=cr_items.item_id
    and sr_items.item_id=wr_items.item_id 
- order by sr_items.item_id
-         ,sr_item_qty
+ order by (sr_items.item_id IS NOT NULL), sr_items.item_id
+         ,(sr_item_qty IS NOT NULL), sr_item_qty
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query83.tpl

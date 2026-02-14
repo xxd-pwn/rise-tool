@@ -46,7 +46,7 @@ select  distinct(i_product_name)
         (i_units = 'Gram' or i_units = 'Ounce') and
         (i_size = 'petite' or i_size = 'medium')
         )))) > 0
- order by i_product_name
+ order by (i_product_name IS NOT NULL), i_product_name
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query41.tpl

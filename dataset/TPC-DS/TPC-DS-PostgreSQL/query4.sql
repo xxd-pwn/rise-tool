@@ -107,10 +107,10 @@ union all
            > case when t_s_firstyear.year_total > 0 then t_s_secyear.year_total / t_s_firstyear.year_total else null end
    and case when t_c_firstyear.year_total > 0 then t_c_secyear.year_total / t_c_firstyear.year_total else null end
            > case when t_w_firstyear.year_total > 0 then t_w_secyear.year_total / t_w_firstyear.year_total else null end
- order by t_s_secyear.customer_id
-         ,t_s_secyear.customer_first_name
-         ,t_s_secyear.customer_last_name
-         ,t_s_secyear.customer_email_address
+ order by (t_s_secyear.customer_id IS NOT NULL), t_s_secyear.customer_id
+         ,(t_s_secyear.customer_first_name IS NOT NULL), t_s_secyear.customer_first_name
+         ,(t_s_secyear.customer_last_name IS NOT NULL), t_s_secyear.customer_last_name
+         ,(t_s_secyear.customer_email_address IS NOT NULL), t_s_secyear.customer_email_address
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query4.tpl

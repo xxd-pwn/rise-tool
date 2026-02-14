@@ -50,7 +50,8 @@ with my_customers as (
   select  segment, count(*) as num_customers, segment*50 as segment_base
  from segments
  group by segment
- order by segment, num_customers
+ order by (segment IS NOT NULL), segment,
+          (num_customers IS NOT NULL), num_customers
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query54.tpl

@@ -1,1 +1,0 @@
-SELECT CAST( SUM( CASE WHEN `t2`.`consumption` > 46.73 THEN 1 ELSE 0 END ) AS DOUBLE ) * 100 / COUNT( `t1`.`customerid` ) FROM `customers` AS `t1` INNER JOIN `yearmonth` AS `t2` ON `t1`.`customerid` = `t2`.`customerid` WHERE `t1`.`segment` = 'LAM'

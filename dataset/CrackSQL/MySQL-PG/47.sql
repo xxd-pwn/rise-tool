@@ -1,1 +1,0 @@
-SELECT COUNT( `t2`.`school` ) FROM `frpm` AS `t1` INNER JOIN `schools` AS `t2` ON `t1`.`cdscode` = `t2`.`cdscode` WHERE `t2`.`county` = 'Los Angeles' AND `t2`.`charter` = 0 AND CAST( `t1`.`free meal count (k-12)` AS DOUBLE ) * 100 / `t1`.`enrollment (k-12)` < 0.18

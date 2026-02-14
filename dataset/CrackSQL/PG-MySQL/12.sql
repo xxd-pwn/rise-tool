@@ -1,1 +1,0 @@
-SELECT "t2"."event_name" FROM "budget" AS "t1" INNER JOIN "event" AS "t2" ON "t2"."event_id" = "t1"."link_to_event" WHERE "t1"."event_status" = 'Closed' AND "t1"."remaining" < 0 ORDER BY "t1"."remaining" NULLS FIRST LIMIT 1

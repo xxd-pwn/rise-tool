@@ -22,7 +22,8 @@ where ss_item_sk = i_item_sk and
 group by i_category, i_class, i_brand,
          s_store_name, s_company_name, d_moy) tmp1
 where case when (avg_monthly_sales <> 0) then (abs(sum_sales - avg_monthly_sales) / avg_monthly_sales) else null end > 0.1
-order by sum_sales - avg_monthly_sales, s_store_name
+order by (sum_sales - avg_monthly_sales IS NOT NULL), sum_sales - avg_monthly_sales,
+         (s_store_name IS NOT NULL), s_store_name
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query89.tpl

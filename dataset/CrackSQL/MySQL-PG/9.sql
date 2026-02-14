@@ -1,1 +1,0 @@
-SELECT CAST( COUNT( CASE WHEN NOT `t2`.`time` IS NULL THEN `t2`.`driverid` END ) AS DOUBLE ) * 100 / COUNT( `t2`.`driverid` ) FROM `races` AS `t1` INNER JOIN `results` AS `t2` ON `t2`.`raceid` = `t1`.`raceid` WHERE `t1`.`date` = '1983-07-16'

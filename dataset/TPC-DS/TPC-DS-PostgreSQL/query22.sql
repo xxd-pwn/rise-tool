@@ -14,7 +14,7 @@ select  i_product_name
                        ,i_brand
                        ,i_class
                        ,i_category)
-order by qoh, i_product_name, i_brand, i_class, i_category
+order by (qoh IS NOT NULL), qoh, (i_product_name IS NOT NULL), i_product_name, (i_brand IS NOT NULL), i_brand, (i_class IS NOT NULL), i_class, (i_category IS NOT NULL), i_category
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query22.tpl

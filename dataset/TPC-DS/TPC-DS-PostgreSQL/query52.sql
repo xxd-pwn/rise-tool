@@ -14,9 +14,9 @@ select  dt.d_year
  group by dt.d_year
  	,item.i_brand
  	,item.i_brand_id
- order by dt.d_year
- 	,ext_price desc
- 	,brand_id
+ order by (dt.d_year IS NOT NULL), dt.d_year
+ 	,(ext_price IS NOT NULL) desc, ext_price desc
+ 	,(brand_id IS NOT NULL), brand_id
  fetch first 100 rows only ;
 
 -- end query 1 in stream 0 using template query52.tpl

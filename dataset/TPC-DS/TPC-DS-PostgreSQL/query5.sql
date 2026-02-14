@@ -124,8 +124,8 @@ with ssr as
  from   wsr
  ) x
  group by rollup (channel, id)
- order by channel
-         ,id
+ order by (channel IS NOT NULL), channel
+         ,(id IS NOT NULL), id
   fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query5.tpl

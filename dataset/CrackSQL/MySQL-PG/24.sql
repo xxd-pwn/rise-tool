@@ -1,1 +1,0 @@
-SELECT CAST( SUM( `t2`.`gender` = 'F' ) AS DOUBLE ) * 100 / COUNT( `t2`.`client_id` ) FROM `district` AS `t1` INNER JOIN `client` AS `t2` ON `t1`.`district_id` = `t2`.`district_id` WHERE `t1`.`a11` > 10000

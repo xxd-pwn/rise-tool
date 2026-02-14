@@ -15,11 +15,11 @@ select  i_brand_id brand_id, i_brand brand, i_manufact_id, i_manufact,
       ,i_brand_id
       ,i_manufact_id
       ,i_manufact
- order by ext_price desc
-         ,i_brand
-         ,i_brand_id
-         ,i_manufact_id
-         ,i_manufact
+ order by (ext_price IS NOT NULL) desc, ext_price desc
+         ,(i_brand IS NOT NULL), i_brand
+         ,(i_brand_id IS NOT NULL), i_brand_id
+         ,(i_manufact_id IS NOT NULL), i_manufact_id
+         ,(i_manufact IS NOT NULL), i_manufact
  fetch first 100 rows only ;
 
 -- end query 1 in stream 0 using template query19.tpl

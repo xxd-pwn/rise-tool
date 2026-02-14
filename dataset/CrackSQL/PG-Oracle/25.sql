@@ -1,1 +1,0 @@
-SELECT "t1"."name" FROM "races" AS "t1" INNER JOIN "driverstandings" AS "t2" ON "t2"."raceid" = "t1"."raceid" INNER JOIN "drivers" AS "t3" ON "t3"."driverid" = "t2"."driverid" WHERE "t3"."forename" = 'Alex' AND "t3"."surname" = 'Yoong' AND "t2"."position" < 20

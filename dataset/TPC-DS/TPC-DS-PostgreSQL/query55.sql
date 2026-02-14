@@ -8,7 +8,8 @@ select  i_brand_id brand_id, i_brand brand,
  	and d_moy=12
  	and d_year=2001
  group by i_brand, i_brand_id
- order by ext_price desc, i_brand_id
+ order by (ext_price IS NOT NULL) desc, ext_price desc,
+          (i_brand_id IS NOT NULL), i_brand_id
  fetch first 100 rows only ;
 
 -- end query 1 in stream 0 using template query55.tpl

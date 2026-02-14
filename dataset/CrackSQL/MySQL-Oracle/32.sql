@@ -1,1 +1,0 @@
-SELECT `name` FROM `races` WHERE DATE_FORMAT( CAST( `date` AS DATETIME ) , '%Y' ) = ( SELECT DATE_FORMAT( CAST( `date` AS DATETIME ) , '%Y' ) FROM `races` ORDER BY `date` ASC LIMIT 1 ) AND DATE_FORMAT( CAST( `date` AS DATETIME ) , '%m' ) = ( SELECT DATE_FORMAT( CAST( `date` AS DATETIME ) , '%m' ) FROM `races` ORDER BY `date` ASC LIMIT 1 )

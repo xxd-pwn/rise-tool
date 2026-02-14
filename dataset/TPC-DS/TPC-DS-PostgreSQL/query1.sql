@@ -19,7 +19,7 @@ where ctr1.ctr_store_sk = ctr2.ctr_store_sk)
 and s_store_sk = ctr1.ctr_store_sk
 and s_state = 'TN'
 and ctr1.ctr_customer_sk = c_customer_sk
-order by c_customer_id
+order by (c_customer_id IS NOT NULL), c_customer_id
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query1.tpl

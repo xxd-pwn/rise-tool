@@ -38,7 +38,7 @@ from
    and   s_gmt_offset = -7
    and   d_year = 1999
    and   d_moy  = 11) all_sales
-order by promotions, total
+order by (promotions IS NOT NULL), promotions, (total IS NOT NULL), total
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query61.tpl

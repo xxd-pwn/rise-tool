@@ -1,1 +1,0 @@
-SELECT CAST( SUM( CASE WHEN NOT `t1`.`cardkingdomfoilid` IS NULL AND NOT `t1`.`cardkingdomid` IS NULL THEN 1 ELSE 0 END ) AS DOUBLE ) * 100 / COUNT( `t1`.`id` ) FROM `cards` AS `t1` INNER JOIN `sets` AS `t2` ON `t2`.`code` = `t1`.`setcode` WHERE `t2`.`name` = 'Coldsnap'

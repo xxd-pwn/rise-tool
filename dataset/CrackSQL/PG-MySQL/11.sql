@@ -1,1 +1,0 @@
-SELECT "t2"."driverid" , "t2"."code" FROM "results" AS "t1" INNER JOIN "drivers" AS "t2" ON "t1"."driverid" = "t2"."driverid" WHERE TO_CHAR( CAST( "t2"."dob" AS TIMESTAMP ) , 'YYYY' ) = '1971' AND NOT "t1"."fastestlaptime" IS NULL

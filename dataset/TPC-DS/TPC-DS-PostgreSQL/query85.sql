@@ -75,10 +75,10 @@ select  substr(r_reason_desc,1,20)
     )
    )
 group by r_reason_desc
-order by substr(r_reason_desc,1,20)
-        ,avg(ws_quantity)
-        ,avg(wr_refunded_cash)
-        ,avg(wr_fee)
+order by (substr(r_reason_desc,1,20) IS NOT NULL), substr(r_reason_desc,1,20)
+        ,(avg(ws_quantity) IS NOT NULL), avg(ws_quantity)
+        ,(avg(wr_refunded_cash) IS NOT NULL), avg(wr_refunded_cash)
+        ,(avg(wr_fee) IS NOT NULL), avg(wr_fee)
  fetch first 100 rows only;
 
 -- end query 1 in stream 0 using template query85.tpl
